@@ -1,0 +1,24 @@
+---
+title:       Learning Webby
+created_at:  2008-08-02 14:06:40.000000 -06:00
+filter:
+  - erb
+  - textile
+---
+
+p(title). <%= @page.title %> - <%= @page.created_at %>
+
+<% 
+  posts = @pages.find(:all, 
+    :in_directory => "posts",
+    :recursive    => true,
+    :sort_by      => 'created_at',
+    :reverse      => true)
+
+  paginate(posts, 10) do |post| 
+%>
+
+<%= link_to("#{post.title} #{post.created_at}", post.url) %>
+<%= render(post) %>
+
+<% end %>

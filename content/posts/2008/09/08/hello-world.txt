@@ -1,0 +1,9 @@
+---
+title:       Post 1.0
+created_at:  2008-09-08 21:47:00.000000 -07:00
+filter:
+  - erb
+  - textile
+---
+
+Hello World
